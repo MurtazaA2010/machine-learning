@@ -1,4 +1,4 @@
-# Machine Learning From Scratch
+# Machine Learning
 
 A repository to implement and understand core **Machine Learning algorithms from scratch** in Python. This project focuses on building algorithms without relying on high-level libraries like `scikit-learn` or `TensorFlow`, giving a deep understanding of the math and mechanics behind them.
 
