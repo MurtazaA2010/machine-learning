@@ -15,8 +15,9 @@ class RobustScaler:
         if self.median_ is None or self.iqr_ is None:
             raise Exception("scaler not fitted yet")
         else:
+            X = np.array(X)
             return (X- self.median_)/ self.iqr_
         
     def fit_transform(self, X):
         self.fit(X)
-        return (X-self.median_) / self.iqr_
+        return self.transform(X)
