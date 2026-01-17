@@ -13,7 +13,8 @@ class StandardScaler:
         if self.mean_ is None or self.scale_ is None:
             raise Exception("The data isn't fitted yet")
         else:
+            X = np.array(X)
             return (X-self.mean_) / self.scale_
     def fit_transform(self, X):
         self.fit(X)
-        return (X-self.mean_) / self.scale_
+        return self.transform(X)
