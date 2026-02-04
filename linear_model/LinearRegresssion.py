@@ -18,10 +18,9 @@ class LinearRegression:
         self.bias = np.zeros((1, k))
 
         for _ in range(self.n_iters):
-            y_pred = X.dot(self.weights) + self.bias  # (m x k)
-            dw = (1 / m) * X.T.dot(y_pred - y)        # (n x k)
-            db = (1 / m) * np.sum(y_pred - y, axis=0, keepdims=True)  # (1 x k)
-
+            y_pred = X.dot(self.weights) + self.bias 
+            dw = (1 / m) * X.T.dot(y_pred - y)       
+            db = (1 / m) * np.sum(y_pred - y, axis=0, keepdims=True)
             self.weights -= self.learning_rate * dw
             self.bias -= self.learning_rate * db
 
@@ -37,3 +36,13 @@ class LinearRegression:
     def fit_transform(self, X, y):
         self.fit(X, y)
         return self.predict(X)
+    def params(self):
+        if self.weights is None:
+            print("No weights initialized")
+            return
+        if self.bias is None:
+            print("No bias initialized")
+            return
+    
+        print("Weights:\n", self.weights)
+        print("\nBiases:\n", self.bias)
